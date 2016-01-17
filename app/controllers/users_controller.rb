@@ -9,6 +9,7 @@
   
   def show
     @user = User.find(params[:id])
+    @worklogs = @user.worklogs.paginate(page: params[:page])	
   end
   
   def new
