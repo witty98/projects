@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :worklogs, dependent: :destroy
+  has_many :projects
   attr_accessor :remember_token
   before_save { self.name = name.downcase }
   validates :name, presence: true, length: { maximum: 50 }

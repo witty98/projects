@@ -3,19 +3,19 @@
 	
 	
       <%= f.label "输入用户名（不可重复）" %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name ,:class => 'form-control'%>
 
       <%= f.label "输入姓名" %>
-      <%= f.text_field :namecn %>
+      <%= f.text_field :namecn,:class => 'form-control' %>
 	  
       <%= f.label "角色" %>
-      <%= f.text_field :role %>
+      <%= f.text_field :role,:class => 'form-control' %>
 	  
       <%= f.label "输入密码" %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password,:class => 'form-control' %>
 
       <%= f.label :password_confirmation, "再次重复密码" %>
-      <%= f.password_field :password_confirmation %>
+      <%= f.password_field :password_confirmation,:class => 'form-control' %>
 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
