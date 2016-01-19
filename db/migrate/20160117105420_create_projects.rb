@@ -3,8 +3,9 @@ class CreateProjects < ActiveRecord::Migration
     create_table :projects do |t|
       t.string :name
       t.string :code, :unique => true
+	  t.integer :monthid	  
       t.date :start_time
-      t.date :end_time,:default:''
+      t.date :end_time
 
       t.timestamps null: false
     end

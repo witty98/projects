@@ -3,22 +3,22 @@ class ProjectsController < ApplicationController
 
    def new
 	  @project = Project.new
-	  strnow = "KLIC"+ Time.now.strftime('%Y')+Time.now.strftime('%M')
-	  if Project.find(:code,include?strnow)
-		  @last = Project.last
-		  str = @last.code
-		  str1 = str[0,9]
-		  str2 = str[11,13]
-		  @m = str1.to_i
-
-		  @s = str2.to_i
-		  @s = @s + 1
+	  if Project.last.nil?
+  		@project.monthid = 1
 	  else
-		  @s = 0
+		  last = Project.first
+		  last_month = last.code[8,2]
+		  if last_month = Time.now.strftime('%m').to_s
+			 @project.monthid = last.monthid + 1
+		  else
+			 @project.monthid = 1
+		  end
 	  end
+	  strnow = "KLIC"+ Time.now.strftime('%Y').to_s+Time.now.strftime('%m').to_s
+	  @project.code = strnow + "-" + @project.monthid.to_s
    end
    
-   def index
+  def index
     @projects = Project.paginate(page: params[:page])
   end
   
@@ -57,7 +57,7 @@ class ProjectsController < ApplicationController
 
     def project_params
       params.require(:project).permit(:name, :code, :ProjectType_id,
-                                   :user_id,:ProjectStatus_id,:start_time,:end_time)
+                                   :user_id,:ProjectStatus_id,:monthid,:start_time,:end_time)
     end
 	
     # Before filters
