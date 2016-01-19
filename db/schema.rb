@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160119022250) do
+ActiveRecord::Schema.define(version: 20160119081345) do
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20160119022250) do
   add_index "implements", ["department_id"], name: "index_implements_on_department_id"
   add_index "implements", ["project_id", "department_id"], name: "index_implements_on_project_id_and_department_id", unique: true
   add_index "implements", ["project_id"], name: "index_implements_on_project_id"
+
+  create_table "partakers", force: :cascade do |t|
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "partakers", ["project_id", "user_id"], name: "index_partakers_on_project_id_and_user_id", unique: true
+  add_index "partakers", ["project_id"], name: "index_partakers_on_project_id"
+  add_index "partakers", ["user_id"], name: "index_partakers_on_user_id"
 
   create_table "project_statuses", force: :cascade do |t|
     t.string   "name"

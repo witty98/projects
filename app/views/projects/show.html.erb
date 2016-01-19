@@ -29,6 +29,13 @@
       </ol>
       <%= will_paginate @implements %>
     <% end %>
+	参与人员：
+    <% if @project.partakers.any? %>
+      <ol class="worklogs">
+        <%= render @partakers %>
+      </ol>
+      <%= will_paginate @partakers %>
+    <% end %>
     </section>
   </div>
 </div>

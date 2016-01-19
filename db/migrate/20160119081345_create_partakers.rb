@@ -6,5 +6,6 @@ class CreatePartakers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+	add_index :partakers, [:project_id, :user_id], unique: true
   end
 end

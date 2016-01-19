@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
   	# @implement= @project.implements.build
     @implements = @project.implements.paginate(page: params[:page])	
+    @partakers = @project.partakers.paginate(page: params[:page])
   end
   
   def create
