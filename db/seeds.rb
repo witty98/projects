@@ -39,4 +39,8 @@ ProjectType.create!(name:  "勘界",
 ProjectStatus.create!(name:  "计划")
 ProjectStatus.create!(name:  "进行中")
 ProjectStatus.create!(name:  "完成")
-		 
+
+Department.create!(name:  "规划事务部",
+             duty: "规划修改、报件")
+Department.create!(name:  "技术服务部",
+             duty: "勘界、制图")	

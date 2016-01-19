@@ -2,6 +2,7 @@
   belongs_to :user
   belongs_to :ProjectType
   belongs_to :ProjectStatus
+  has_many :implements
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates_presence_of :name, :message => "项目名称不能为空"

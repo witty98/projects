@@ -7,8 +7,8 @@ class ProjectsController < ApplicationController
   		@project.monthid = 1
 	  else
 		  last = Project.first
-		  last_month = last.code[8,2]
-		  if last_month = Time.now.strftime('%m').to_s
+		  last_month = last.code[4,6]
+		  if last_month == Time.now.strftime('%Y%m').to_s
 			 @project.monthid = last.monthid + 1
 		  else
 			 @project.monthid = 1
@@ -16,10 +16,17 @@ class ProjectsController < ApplicationController
 	  end
 	  strnow = "KLIC"+ Time.now.strftime('%Y').to_s+Time.now.strftime('%m').to_s
 	  @project.code = strnow + "-" + @project.monthid.to_s
+	  @implement= @project.implements.build
    end
    
   def index
     @projects = Project.paginate(page: params[:page])
+  end
+  
+  def show
+    @project = Project.find(params[:id])
+  	# @implement= @project.implements.build
+    @implements = @project.implements.paginate(page: params[:page])	
   end
   
   def create
@@ -45,7 +52,7 @@ class ProjectsController < ApplicationController
       render 'edit'
     end
   end
- 
+  
   def destroy
     Project.find(params[:id]).destroy
     flash[:success] = "删除成功！"

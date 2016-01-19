@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117105420) do
+ActiveRecord::Schema.define(version: 20160119022250) do
+
+  create_table "departments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "duty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "implements", force: :cascade do |t|
+    t.string   "job"
+    t.integer  "project_id"
+    t.integer  "department_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "implements", ["department_id"], name: "index_implements_on_department_id"
+  add_index "implements", ["project_id", "department_id"], name: "index_implements_on_project_id_and_department_id", unique: true
+  add_index "implements", ["project_id"], name: "index_implements_on_project_id"
 
   create_table "project_statuses", force: :cascade do |t|
     t.string   "name"
