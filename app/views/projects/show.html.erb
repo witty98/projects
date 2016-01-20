@@ -7,7 +7,7 @@
 </div>
 <div class="row">
 
-  <div class="col-md-6 col-md-offset-1">
+  <div class="col-md-4 col-md-offset-1">
 	
   	<h3>
 		<li>项目名称：<%= @project.name %></li>
@@ -20,7 +20,7 @@
 	</h3>
 
   </div>
-  <div class="col-md-4">
+  <div class="col-md-7">
     <section class="user_info">
 	实施部门：
     <% if @project.implements.any? %>
@@ -29,12 +29,23 @@
       </ol>
       <%= will_paginate @implements %>
     <% end %>
+	</section>
+	<section class="user_info">
 	参与人员：
     <% if @project.partakers.any? %>
       <ol class="worklogs">
         <%= render @partakers %>
       </ol>
       <%= will_paginate @partakers %>
+    <% end %>
+    </section>
+	<section class="user_info">
+	本项目时间计划：
+    <% if @project.plans.any? %>
+      <ol class="worklogs">
+        <%= render @plans %>
+      </ol>
+      <%= will_paginate @plans %>
     <% end %>
     </section>
   </div>

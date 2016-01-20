@@ -4,6 +4,7 @@
   belongs_to :ProjectStatus
   has_many :implements, dependent: :destroy
   has_many :partakers, dependent: :destroy
+  has_many :plans, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates_presence_of :name, :message => "项目名称不能为空"
