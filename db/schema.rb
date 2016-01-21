@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120135942) do
+ActiveRecord::Schema.define(version: 20160121081931) do
+
+  create_table "contracts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "partyc"
+    t.string   "director"
+    t.string   "director_tel"
+    t.decimal  "total",        precision: 12, scale: 2
+    t.decimal  "surplus",      precision: 12, scale: 2
+    t.text     "detail"
+    t.date     "sign_time"
+    t.integer  "time_limit"
+    t.boolean  "status",                                default: true
+    t.integer  "project_id"
+    t.integer  "partyb_id"
+    t.integer  "paytype_id"
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+  end
+
+  add_index "contracts", ["partyb_id"], name: "index_contracts_on_partyb_id"
+  add_index "contracts", ["paytype_id"], name: "index_contracts_on_paytype_id"
+  add_index "contracts", ["project_id"], name: "index_contracts_on_project_id"
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"
@@ -55,6 +78,12 @@ ActiveRecord::Schema.define(version: 20160120135942) do
     t.string   "account"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "paytypes", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plans", force: :cascade do |t|

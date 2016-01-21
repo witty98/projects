@@ -40,6 +40,9 @@ ProjectStatus.create!(name:  "计划")
 ProjectStatus.create!(name:  "进行中")
 ProjectStatus.create!(name:  "完成")
 
+Paytype.create!(name:  "收入合同")
+Paytype.create!(name:  "支出合同")
+
 Department.create!(name:  "规划事务部",
              duty: "规划修改、报件")
 Department.create!(name:  "技术服务部",
