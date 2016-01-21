@@ -9,6 +9,25 @@
         <%= render 'shared/worklog_form' %>
       </section>
     </aside>
+	
+	<div class="col-md-4">
+      <section class="user_info">
+		<h3>
+		  	<%= link_to "新建部门任务", new_implement_path  %> 
+			<br><br>
+			<%= link_to "新建项目参与人员", new_partaker_path  %>
+			<br><br>
+			<%= link_to "新建项目计划", new_plan_path %> 
+			<br><br>
+			<%= link_to "合同管理", "#" %>
+			<br><br>
+			<%= link_to "业务往来单位管理", partybs_path %>
+			<br><br>
+			<%= link_to "其他", "#" %>
+			
+		</h3>
+      </section>
+    </div>
   </div>
 <% else %>
   <div class="center jumbotron">
