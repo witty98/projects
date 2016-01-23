@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121081931) do
+ActiveRecord::Schema.define(version: 20160123005708) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160121081931) do
     t.integer  "paytype_id"
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
+    t.string   "avatar"
   end
 
   add_index "contracts", ["partyb_id"], name: "index_contracts_on_partyb_id"

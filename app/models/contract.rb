@@ -1,4 +1,6 @@
+require 'carrierwave/orm/activerecord'
 class Contract < ActiveRecord::Base
+  mount_uploader :avatar, AvatarUploader
   belongs_to :project
   belongs_to :partyb
   default_scope -> { order(created_at: :desc) }

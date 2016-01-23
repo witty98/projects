@@ -46,7 +46,12 @@
 		  <%= f.label "签订时间" %>
   		  <%= f.date_select :sign_time,use_month_numbers: true %>		  
 		</div>
-	</div>    
+	</div>   
+	<div class="row">	
+		 <label>上传合同:</label>
+		 <%= @contract.avatar_identifier if @contract.avatar? %>
+		 <%= f.file_field :avatar %>
+	</div> 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>
 </div>

@@ -1,4 +1,6 @@
-﻿<li><%=contract.name%>   |  <%=contract.code %> |  <%= contract.total %>元
+﻿<li><%=link_to contract.name,contract%>   
+|  <%=contract.code %> 
+|  <%= contract.total %>元
   <br>
   <%= link_to "修改信息",edit_contract_path(contract) %>
   <br>

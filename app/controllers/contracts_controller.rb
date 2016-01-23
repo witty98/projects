@@ -2,7 +2,12 @@ class ContractsController < ApplicationController
   def index
 	@contracts = Contract.paginate(page: params[:page])
   end
-
+  
+  def show
+    @contract = Contract.find(params[:id])
+	# send_file(@contract.avatar.url, :disposition => "inline", :type => "application/pdf; charset=utf-8'")
+  end
+  
   def new
 	# @projects = Project.all
 	# @partybs = Partyb.all
@@ -63,6 +68,6 @@ class ContractsController < ApplicationController
   private
 
     def contract_params
-      params.require(:contract).permit(:name, :partyc, :paytype_id, :director,:director_tel,:total,:surplus,:detail,:sign_time,:time_limit,:project_id,:partyb_id )
+      params.require(:contract).permit(:name, :partyc, :paytype_id, :director,:director_tel,:total,:surplus,:detail,:sign_time,:time_limit,:project_id,:partyb_id,:avatar)
     end
 end

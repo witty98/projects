@@ -5,8 +5,6 @@
       <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "首页",   root_path %></li>
             <% if logged_in? %>
-	     		<li><%= link_to "项目管理", projects_path %></li>
-				<li><%= link_to "新建项目", new_project_path %></li>
 				<% if role_admin? %>
 					<li><%= link_to "管理用户", users_path %></li>
 					<li><%= link_to "注册用户", signup_path %></li>

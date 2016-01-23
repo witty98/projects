@@ -1,0 +1,21 @@
+<% provide(:title, "合同信息") %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <li><%= @contract.name %>合同信息：</li>
+		<li>合同名称：<%= @contract.name %></li>
+		<li>合同编号：<%= @contract.code %></li>
+		<li>项目名称<%= @contract.project.name %></li>
+		
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <% if @contract.avatar? %>
+		<iframe src=<%= @contract.avatar_url %> width="100%" height="780" style="border: none;"> </iframe>
+	<% else %>
+        <li><%= link_to "添加合同", edit_contract_path(@contract) %></li>
+    <% end %>
+  </div>
+</div>
