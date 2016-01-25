@@ -48,9 +48,9 @@
 		</div>
 	</div>   
 	<div class="row">	
-		 <label>上传合同:</label>
-		 <%= @contract.avatar_identifier if @contract.avatar? %>
-		 <%= f.file_field :avatar %>
+			 <label>上传合同（合同格式应为jpg或者pdf格式！）:</label>
+			 <%= @contract.avatar_identifier if @contract.avatar? %>
+			 <%= f.file_field :avatar ,:class => 'form-control'%>
 	</div> 
       <%= f.submit yield(:button_text), class: "btn btn-primary" %>
     <% end %>

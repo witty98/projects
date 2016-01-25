@@ -5,7 +5,7 @@ class ContractsController < ApplicationController
   
   def show
     @contract = Contract.find(params[:id])
-	# send_file(@contract.avatar.url, :disposition => "inline", :type => "application/pdf; charset=utf-8'")
+    @deals = @contract.deals.paginate(page: params[:page])	
   end
   
   def new

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123005708) do
+ActiveRecord::Schema.define(version: 20160124052055) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "name"
@@ -36,6 +36,20 @@ ActiveRecord::Schema.define(version: 20160123005708) do
   add_index "contracts", ["partyb_id"], name: "index_contracts_on_partyb_id"
   add_index "contracts", ["paytype_id"], name: "index_contracts_on_paytype_id"
   add_index "contracts", ["project_id"], name: "index_contracts_on_project_id"
+
+  create_table "deals", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "plan_amount", precision: 12, scale: 2
+    t.decimal  "amount",      precision: 12, scale: 2
+    t.date     "deal_time"
+    t.integer  "user_id"
+    t.integer  "contract_id"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
+
+  add_index "deals", ["contract_id"], name: "index_deals_on_contract_id"
+  add_index "deals", ["user_id"], name: "index_deals_on_user_id"
 
   create_table "departments", force: :cascade do |t|
     t.string   "name"

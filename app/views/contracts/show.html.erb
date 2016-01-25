@@ -1,15 +1,16 @@
 <% provide(:title, "合同信息") %>
+<% provide(:button_text, '保存') %>
+<h1>修改合同信息</h1>
 <div class="row">
   <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <li><%= @contract.name %>合同信息：</li>
-		<li>合同名称：<%= @contract.name %></li>
-		<li>合同编号：<%= @contract.code %></li>
-		<li>项目名称<%= @contract.project.name %></li>
-		
-      </h1>
-    </section>
+    <%= render 'form_contract' %>
+	<hr>
+	合同收/付情况：
+	<hr>
+    <% if @contract.deals.any? %>
+        <%= render @deals %>
+		<%= will_paginate @deals %>
+	<% end %>
   </aside>
   <div class="col-md-8">
     <% if @contract.avatar? %>
