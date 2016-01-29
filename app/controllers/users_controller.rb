@@ -51,7 +51,7 @@
 
     def user_params
       params.require(:user).permit(:name, :namecn, :password,
-                                   :password_confirmation)
+                                   :password_confirmation,:role_id)
     end
     # Before filters
 

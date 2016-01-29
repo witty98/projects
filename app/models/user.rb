@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   before_save { self.name = name.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   validates :namecn, presence: true, length: { maximum: 50 }
+  validates :role_id, presence: true
   
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

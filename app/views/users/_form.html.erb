@@ -9,7 +9,7 @@
       <%= f.text_field :namecn,:class => 'form-control' %>
 	  
       <%= f.label "角色" %>
-      <%= f.text_field :role,:class => 'form-control' %>
+	  <%= collection_select(:user ,:role_id , Role.all, :id, :name,:class => 'form-control') %>
 	  
       <%= f.label "输入密码" %>
       <%= f.password_field :password,:class => 'form-control' %>

@@ -5,7 +5,7 @@ Role.create!(id:"3",name:  "部门主管")
 Role.create!(id:"4",name:  "项目负责人")
 Role.create!(id:"5",name:  "项目实施人员")
 Role.create!(id:"6",name:  "财务人员")
-
+Role.create!(id:"7",name:  "项目记录人")
 
 User.create!(name:  "ls",
              namecn: "李四",
@@ -43,6 +43,11 @@ User.create!(name:  "kj",
              password:              "foobar",
              password_confirmation: "foobar",
 			 role_id:6)			 			 			 
+User.create!(name:  "jl",
+             namecn: "记录",
+             password:              "foobar",
+             password_confirmation: "foobar",
+			 role_id:7)	
 			 
 50.times do |n|
   name  = Faker::Name.name

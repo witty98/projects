@@ -11,16 +11,40 @@
     </aside>
 	
 	<div class="col-md-7 col-md-offset-1">
-		<%= render 'project'%>
-		
-		<%= render 'contract'%>
-		
-		<% if role_admin? %>
-		   <%= render 'admin'%>
-		<% else %>
-			不是管理员
-		<% end %>	
-
+	  <h3>
+		<% case current_user.role_id %>
+			<% when 0 %>
+				<%= render 'admin'%>			
+			<% when 1 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %>			
+			<% when 2 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %>
+			<% when 3 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %>
+			<% when 4 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %> <br>
+				<%= link_to "新建项目计划", new_plan_path %> <br>
+				<%= link_to "新建项目参与人员", new_partaker_path %>
+			<% when 5 %>
+				<%= render 'project'%>
+				<%= render 'contract'%>	
+			<% when 6 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %> <br>	
+				<%= link_to "收/付款记录", deals_path %>
+			<% when 7 %>
+				<%= link_to "项目清单", projects_path  %> <br>	
+				<%= link_to "合同清单", contracts_path %> <br>
+				<%= link_to "新建项目", new_project_path  %> <br>
+				<%= link_to "新建部门任务", new_implement_path  %> <br>
+				<%= link_to "新建合同" ,new_contract_path %> <br>
+				<%= link_to "业务往来单位信息记录", partybs_path %>				
+		<% end %>
+	  </h3>
     </div>
   </div>
 <% else %>
