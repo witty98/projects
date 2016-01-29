@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124052055) do
+ActiveRecord::Schema.define(version: 20160129081816) do
 
   create_table "contracts", force: :cascade do |t|
     t.string   "name"
@@ -145,6 +145,13 @@ ActiveRecord::Schema.define(version: 20160124052055) do
   add_index "projects", ["ProjectType_id"], name: "index_projects_on_ProjectType_id"
   add_index "projects", ["user_id"], name: "index_projects_on_user_id"
 
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "definition"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "namecn"
@@ -153,9 +160,11 @@ ActiveRecord::Schema.define(version: 20160124052055) do
     t.string   "password_digest"
     t.string   "remember_digest"
     t.integer  "role",            default: 1
+    t.integer  "role_id"
   end
 
   add_index "users", ["name"], name: "index_users_on_name", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
   create_table "worklogs", force: :cascade do |t|
     t.text     "content"

@@ -1,19 +1,48 @@
-User.create!(name:  "l",
+Role.create!(id:"0",name:  "管理员")
+Role.create!(id:"1",name:  "主任")
+Role.create!(id:"2",name:  "副主任")
+Role.create!(id:"3",name:  "部门主管")
+Role.create!(id:"4",name:  "项目负责人")
+Role.create!(id:"5",name:  "项目实施人员")
+Role.create!(id:"6",name:  "财务人员")
+
+
+User.create!(name:  "ls",
              namecn: "李四",
              password:              "foobar",
              password_confirmation: "foobar",
-			 role:0)
+			 role_id:0)
 
-User.create!(name:  "z",
+User.create!(name:  "zs",
              namecn: "张三",
              password:              "foobar",
              password_confirmation: "foobar",
-			 role:1)
-User.create!(name:  "w",
+			 role_id:1)
+User.create!(name:  "wxe",
              namecn: "王小二",
              password:              "foobar",
              password_confirmation: "foobar",
-			 role:2)
+			 role_id:2)
+User.create!(name:  "ly",
+             namecn: "李一",
+             password:              "foobar",
+             password_confirmation: "foobar",
+			 role_id:3)
+User.create!(name:  "le",
+             namecn: "李二",
+             password:              "foobar",
+             password_confirmation: "foobar",
+			 role_id:4)
+User.create!(name:  "lsan",
+             namecn: "李三",
+             password:              "foobar",
+             password_confirmation: "foobar",
+			 role_id:5)
+User.create!(name:  "kj",
+             namecn: "会计",
+             password:              "foobar",
+             password_confirmation: "foobar",
+			 role_id:6)			 			 			 
 			 
 50.times do |n|
   name  = Faker::Name.name
@@ -22,7 +51,8 @@ User.create!(name:  "w",
   User.create!(name:  name,
                namecn: namecn,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+			   role_id:"5")
 end
 
 users = User.order(:created_at).take(6)

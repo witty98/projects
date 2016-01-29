@@ -17,7 +17,7 @@ module SessionsHelper
   end
   
   def role_admin?
-    current_user.role == 0
+    current_user.role_id == 0
   end
   # Returns the user corresponding to the remember token cookie.
   def current_user

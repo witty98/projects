@@ -10,16 +10,17 @@
       </section>
     </aside>
 	
-	<div class="col-md-4">
-      <section class="user_info">
-		<h3>
-		  	<%= link_to "项目管理", projects_path  %> 
-			<hr>
-			<%= link_to "合同管理", contracts_path %>
-			<hr>
-	
-		</h3>
-      </section>
+	<div class="col-md-7 col-md-offset-1">
+		<%= render 'project'%>
+		
+		<%= render 'contract'%>
+		
+		<% if role_admin? %>
+		   <%= render 'admin'%>
+		<% else %>
+			不是管理员
+		<% end %>	
+
     </div>
   </div>
 <% else %>

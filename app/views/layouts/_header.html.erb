@@ -1,18 +1,15 @@
 ﻿<header class="navbar navbar-fixed-top navbar-inverse">
   <div class="container">
-    <%= link_to "昆明市国土资源信息中心", root_path, id: "logo" %>
+    <%= link_to "项目登记系统", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "首页",   root_path %></li>
+            <li><%= link_to "首页",root_path %></li>
             <% if logged_in? %>
-				<% if role_admin? %>
-					<li><%= link_to "管理用户", users_path %></li>
-					<li><%= link_to "注册用户", signup_path %></li>
-				<% end %>	
-              <li><%= link_to "个人信息", current_user %></li>
+
               <li><%= link_to "修改密码", edit_password_reset_path(current_user) %></li>
+              <li><%= link_to "#{current_user.namecn}，您已登录，欢迎", current_user %></li>			  
               <li>
-                <%= link_to "登出", logout_path, method: "delete" %>
+			  <%= link_to "登出", logout_path, method: "delete" %>
               </li>
             <% else %>
               <li><%= link_to "登录", login_path %></li>

@@ -18,5 +18,6 @@
 
 # Ignore vendor.
 /vendor
-# Ignore public/uploader.
-/public/uploads
+
+# Ignore public.
+/public
